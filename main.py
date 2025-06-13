@@ -1,3 +1,4 @@
+from birthdays import get_upcoming_birthdays
 from date_functions import get_days_from_today
 from random_function import get_numbers_ticket
 from re_functions import normalize_phone
@@ -15,16 +16,27 @@ if __name__ == "__main__":
 
     print("\n === Task3. Test regexp functions == ")
     raw_numbers = [
-    "067\\t123 4567",
-    "(095) 234-5678\\n",
-    "+380 44 123 4567",
-    "380501234567",
-    "    +38(050)123-32-34",
-    "     0503451234",
-    "(050)8889900",
-    "38050-111-22-22",
-    "38050 111 22 11   ",
-]
+        "067\\t123 4567",
+        "(095) 234-5678\\n",
+        "+380 44 123 4567",
+        "380501234567",
+        "    +38(050)123-32-34",
+        "     0503451234",
+        "(050)8889900",
+        "38050-111-22-22",
+        "38050 111 22 11   ",
+    ]
 
-sanitized_numbers = [normalize_phone(num) for num in raw_numbers]
-print("\n Normalized telefon numbers for SMS:", sanitized_numbers)
+    sanitized_numbers = [normalize_phone(num) for num in raw_numbers]
+    print("\n Normalized telefon numbers for SMS:", sanitized_numbers)
+
+    print("\n === Task 4. Get upcoming birthdays ===")
+
+    users = [
+        {"name": "John Doe", "birthday": "1985.06.14"},
+        {"name": "Jane Smith", "birthday": "1990.06.15"},
+        {"name": "Maria Haiko", "birthday": "1991.06.21"},
+        {"name": "Maria Haiko", "birthday": "1991.06.12"},
+    ]
+
+    print("Upcoming birthdays for this week: ", get_upcoming_birthdays(users))
